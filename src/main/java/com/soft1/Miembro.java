@@ -8,10 +8,18 @@ public class Miembro {
     private String rol;
     private Set<Instrumento> instrumentos;
 
-    public Miembro(String nombre, String rol) {
+    public Miembro(String nombre, String rol, Set<Instrumento> instrumentos) {
         this.nombre = nombre;
         this.rol = rol;
-        this.instrumentos = new HashSet<>();
+        this.instrumentos = new HashSet<>(instrumentos);
+    }
+
+    public void agregarInstrumento(Instrumento instrumento){
+        this.instrumentos.add(instrumento);
+    }
+
+    public void eliminarInstrumento(Instrumento instrumento) {
+        this.instrumentos.remove(instrumento);
     }
 
     public String getNombre() {

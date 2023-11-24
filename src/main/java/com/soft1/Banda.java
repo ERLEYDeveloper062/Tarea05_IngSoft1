@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Banda {
+    private String nombre;
     private String genero;
-    private Date fechaCreacion;
+    private java.util.Date fechaCreacion;
     private List<String> fotos;
     private List<Miembro> miembros;
 
-    public Banda(String genero, Date fechaCreacion, List<String> fotos, List<Miembro> miembros) {
+    public Banda(String nombre, String genero, java.util.Date fechaCreacion2, List<String> fotos) {
+        this.nombre  =nombre;
         this.genero = genero;
-        this.fechaCreacion = fechaCreacion;
+        this.fechaCreacion = fechaCreacion2;
         this.fotos = new ArrayList<>();
         this.miembros = new ArrayList<>();
     }
@@ -34,6 +36,29 @@ public class Banda {
         return null;
     }
 
+    public void actualizarMiembros(List<Miembro> miembrosActualizados){
+        for(Miembro miembroActualizado : miembrosActualizados){
+            Miembro miembroExistente = buscarMiembroPorNombre(miembroActualizado.getNombre());
+
+            if(miembroExistente != null){
+                miembroExistente.setNombre(miembroActualizado.getNombre());
+                miembroExistente.setRol(miembroActualizado.getRol());
+                miembroExistente.setInstrumentos(miembroActualizado.getInstrumentos());
+            }else{
+                agregarMiembro(miembroExistente);
+            }
+        }
+
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getGenero() {
         return genero;
     }
@@ -42,7 +67,7 @@ public class Banda {
         this.genero = genero;
     }
 
-    public Date getFechaCreacion() {
+    public java.util.Date getFechaCreacion() {
         return fechaCreacion;
     }
 
