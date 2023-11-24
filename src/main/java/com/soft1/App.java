@@ -1,8 +1,10 @@
 package com.soft1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -49,6 +51,16 @@ public final class App {
         // Actualizar la banda (puedes modificar la banda y luego actualizarla)
         banda1.setNombre("Los 50 De Joselito");
         controlBanda.actualizarBanda(banda1);
+
+        // Crear una nueva lista de miembros para la actualización
+        List<Miembro> nuevosMiembros = new ArrayList<>();
+        Set<Instrumento> instrumentosM3 = EnumSet.of(Instrumento.TECLADO);
+        Set<Instrumento> instrumentosM4 = EnumSet.of(Instrumento.VOZ);
+        nuevosMiembros.add(new Miembro("Carlos", "Tecladista",instrumentosM3));
+        nuevosMiembros.add(new Miembro("Marta", "Vocalista", instrumentosM4));
+
+        // Actualizar los miembros de la banda
+        controlBanda.actualizarBandaMiembros("Los Rockeros", "Rock", nuevosMiembros);
 
         // Volver a buscar la banda con el nuevo nombre
         buscada = controlBanda.buscarBanda("Los 50 De Joselito");

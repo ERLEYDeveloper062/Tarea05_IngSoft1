@@ -11,10 +11,10 @@ public class ControlBanda implements IControlBanda {
         this.bandas = new ArrayList<>();
     }
 
-    public void actualizarBandaMienbros(String nombreBanda, String genero, List<Miembro> nuevosMiembros) {
+    public void actualizarBandaMiembros(String nombreBanda, String genero, List<Miembro> nuevosMiembros) {
         for (Banda banda : bandas) {
             if (banda != null) {
-                if (banda.getNombre().equals(nombreBanda) && banda.getGenero().equals(genero)) {
+                if (banda.getNombre().equals(nombreBanda)) {
                     banda.actualizarMiembros(nuevosMiembros);
                     break;
                 }
