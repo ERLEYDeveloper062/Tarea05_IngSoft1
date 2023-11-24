@@ -17,22 +17,54 @@ public final class App {
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        //Crear instancia de banda
+
+        // Crear una instancia de ControlBanda
         ControlBanda controlBanda = new ControlBanda();
 
-        //Crear una nueva banda
-        String nombreBanda = "Los Rockeros";
-        Date fechaCreacion = new Date();
+        // Crear una banda
+        Banda banda1 = new Banda("Los Rockeros", "Rock", new Date(), Arrays.asList("foto1.jpg", "foto2.jpg"));
+
+        // Registrar la banda
+        controlBanda.registrarBanda(banda1);
+
+        // Crear miembros y agregarlos a la banda
         Set<Instrumento> instrumentosM1 = EnumSet.of(Instrumento.GUITARRA, Instrumento.VOZ);
-        Miembro miembro1 = new Miembro("Juan", "Gitarrista", instrumentosM1);
-        Banda banda1 = new Banda(nombreBanda, "Rock", fechaCreacion, Arrays.asList("foto1.jpg", "foto2.jpg"));
+        Miembro miembro1 = new Miembro("Juan", "Guitarrista", instrumentosM1);
 
-        System.out.println(miembro1);
+        Set<Instrumento> instrumentosM2 = EnumSet.of(Instrumento.BAJO);
+        Miembro miembro2 = new Miembro("Ana", "Bajista", instrumentosM2);
+
         banda1.agregarMiembro(miembro1);
+        banda1.agregarMiembro(miembro2);
 
-        String b1 = controlBanda.consultarBanda(nombreBanda);
-        System.out.println("Información de la banda: " + banda1.getNombre() +
-        " y sus mienbros son: " + banda1.getMiembros());
+        // Imprimir información de la banda
+        System.out.println("Banda registrada:");
+        System.out.println("Nombre de la banda es: " + banda1.getNombre()+ "Genero de la banda es: " + banda1.getGenero());
+
+        // Buscar la banda y mostrar su información
+        Banda buscada = controlBanda.buscarBanda("Los Rockeros");
+        System.out.println("Banda buscada:");
+        System.out.println(buscada.getNombre());
+
+        // Actualizar la banda (puedes modificar la banda y luego actualizarla)
+        banda1.setNombre("Los 50 De Joselito");
+        controlBanda.actualizarBanda(banda1);
+
+        // Volver a buscar la banda con el nuevo nombre
+        buscada = controlBanda.buscarBanda("Los 50 De Joselito");
+        System.out.println("Banda actualizada:");
+        System.out.println(buscada.getNombre());
+
+        //Consultar toda la informacion de la banda
+        System.out.println("Cosulta ...");
+        controlBanda.consultarBanda("Los 50 De Joselito");
+        System.out.println(controlBanda.consultarBanda("Los 50 De Joselito"));
+
+        // Eliminar una banda
+        controlBanda.eliminarBanda("Los 50 De Joselito");
+        buscada = controlBanda.buscarBanda("Los 50 De Joselito");
+        System.out.println("Banda después de eliminar:");
+        System.out.println(buscada != null ? buscada : "Banda no encontrada");
 
     }
 }
