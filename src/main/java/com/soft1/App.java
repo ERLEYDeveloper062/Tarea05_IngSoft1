@@ -7,9 +7,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Hello world!
- */
+import javax.swing.JOptionPane;
+
 public final class App {
     private App() {
     }
@@ -25,16 +24,20 @@ public final class App {
 
         // Crear una banda
         Banda banda1 = new Banda("Los Rockeros", "Rock", new Date(), Arrays.asList("foto1.jpg", "foto2.jpg"));
+        JOptionPane.showMessageDialog(null, "Banda creada con exito");
 
         // Registrar la banda
         controlBanda.registrarBanda(banda1);
+        JOptionPane.showMessageDialog(null, "Banda Registrada");
 
         // Crear miembros y agregarlos a la banda
         Set<Instrumento> instrumentosM1 = EnumSet.of(Instrumento.GUITARRA, Instrumento.VOZ);
         Miembro miembro1 = new Miembro("Juan", "Guitarrista", instrumentosM1);
+        JOptionPane.showMessageDialog(null, "Miembro " + miembro1.getNombre() + ", " + miembro1.getRol() +" creado con exito");
 
         Set<Instrumento> instrumentosM2 = EnumSet.of(Instrumento.BAJO);
         Miembro miembro2 = new Miembro("Ana", "Bajista", instrumentosM2);
+        JOptionPane.showMessageDialog(null, "Miembro " + miembro2.getNombre() + ", " + miembro2.getRol() +" creado con exito");
 
         banda1.agregarMiembro(miembro1);
         banda1.agregarMiembro(miembro2);
@@ -78,5 +81,5 @@ public final class App {
         System.out.println("Banda después de eliminar:");
         System.out.println(buscada != null ? buscada : "Banda no encontrada");
 
-    }
+     }
 }
