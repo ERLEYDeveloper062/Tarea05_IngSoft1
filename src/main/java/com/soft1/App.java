@@ -9,6 +9,8 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
+
 public final class App {
     private App() {
     }
@@ -81,24 +83,5 @@ public final class App {
         System.out.println("Banda después de eliminar:");
         System.out.println(buscada != null ? buscada : "Banda no encontrada");
 
-
-        // Instancia de ControlConcierto
-        ControlConcierto controlConcierto = new ControlConcierto();
-
-        // Creación y agregación de conciertos
-        Concierto concierto1 = new Concierto("RockFest", new Date());
-        controlConcierto.agregarConcierto(concierto1);
-
-        // h) Asignar lista de canciones al concierto
-        controlConcierto.seleccionarConcierto("RockFest", List.of(
-            new Cancion("Code Rocker", 3.5f),
-            new Cancion("Debug Anthem", 4.0f)
-        ));
-
-        // i) Registrar el total de boletos vendidos en el concierto
-        controlConcierto.registrarBoletosVendidos("RockFest", 150);
-
-        // j) Consultar todos los conciertos realizados, cada uno con sus boletas vendidas
-        controlConcierto.consultarConciertos();
-     }
+    }
 }
