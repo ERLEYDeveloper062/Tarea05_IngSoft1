@@ -11,6 +11,12 @@ public class ControlBanda implements IControlBanda {
         this.bandas = new ArrayList<>();
     }
 
+    /**
+     * Actualiza los mienbros de la banda.
+     * @param nombreBanda Ingresa el nombre de la banda
+     * @param genero Ingresa su genero musical
+     * @param nuevosMiembros Incorpora los nuevos miembros a la banda
+     */
     public void actualizarBandaMiembros(String nombreBanda, String genero, List<Miembro> nuevosMiembros) {
         for (Banda banda : bandas) {
             if (banda != null) {
@@ -22,6 +28,11 @@ public class ControlBanda implements IControlBanda {
         }
     }
 
+    /***
+     * Consulta toda la informacion de la banda.
+     * @param nombreBanda Ingresa el nombre de la banda
+     * @return Retorna toda la informacion con respecto a la conformacion de la banda.
+     */
     public String consultarBanda(String nombreBanda) {
         for (Banda banda : bandas) {
             if (banda.getNombre().equals(nombreBanda)) {

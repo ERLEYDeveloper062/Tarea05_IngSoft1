@@ -3,11 +3,21 @@ package com.soft1;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * Agrega un miembro a la banda
+ */
+
 public class Miembro {
     private String nombre;
     private String rol;
     private Set<Instrumento> instrumentos;
 
+    /**
+     *
+     * @param nombre
+     * @param rol
+     * @param instrumentos
+     */
     public Miembro(String nombre, String rol, Set<Instrumento> instrumentos) {
         this.nombre = nombre;
         this.rol = rol;
