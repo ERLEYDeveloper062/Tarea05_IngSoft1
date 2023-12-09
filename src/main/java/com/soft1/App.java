@@ -9,8 +9,6 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
-import javax.swing.JOptionPane;
-
 public final class App {
     private App() {
     }
@@ -83,5 +81,5 @@ public final class App {
         System.out.println("Banda después de eliminar:");
         System.out.println(buscada != null ? buscada : "Banda no encontrada");
 
-    }
+     }
 }
