@@ -25,7 +25,7 @@ public class Banda {
     public Banda(String nombre, String genero, java.util.Date fechaCreacion2, List<String> fotos) {
         this.nombre  =nombre;
         this.genero = genero;
-        this.fechaCreacion = fechaCreacion2;
+        this.fechaCreacion = fechaCreacion;
         this.fotos = new ArrayList<>();
         this.miembros = new ArrayList<>();
     }
@@ -76,7 +76,6 @@ public class Banda {
                 agregarMiembro(miembroExistente);
             }
         }
-
     }
 
     public String getNombre() {

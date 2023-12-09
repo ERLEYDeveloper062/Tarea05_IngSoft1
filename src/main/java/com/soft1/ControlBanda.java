@@ -38,7 +38,7 @@ public class ControlBanda implements IControlBanda {
             if (banda.getNombre().equals(nombreBanda)) {
                 return "Nombre: " + banda.getNombre() +
                        ", Género: " + banda.getGenero() +
-                       ", Fecha de Creación: " + banda.getFechaCreacion().toString() +
+                       ", Fecha de Creación: " + banda.getFechaCreacion() +
                        ", Miembros: " + banda.getMiembros().stream()
                            .map(miembro -> miembro.getNombre() + " (" + miembro.getRol() + ")")
                            .collect(Collectors.joining(", "));
