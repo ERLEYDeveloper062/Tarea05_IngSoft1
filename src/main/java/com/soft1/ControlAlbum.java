@@ -29,5 +29,5 @@ public class ControlAlbum {
             album.agregarCancion(cancion);
         }
     }
-    
+
 }
