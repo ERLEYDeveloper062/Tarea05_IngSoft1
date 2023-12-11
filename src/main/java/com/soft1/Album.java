@@ -37,16 +37,8 @@ public class Album {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Date getFecha() {
         return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public double getDuracion() {
@@ -60,11 +52,4 @@ public class Album {
     public List<Cancion> getCanciones() {
         return canciones;
     }
-
-    public void setCanciones(List<Cancion> canciones) {
-        this.canciones = canciones;
-    }
-
-    
-    
 }

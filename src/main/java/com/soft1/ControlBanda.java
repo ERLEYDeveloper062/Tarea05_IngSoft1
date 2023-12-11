@@ -108,6 +108,7 @@ public class ControlBanda {
      * @param bandaActualizada se ingresa una banda en espefico para luego buscarla segun su nombre.
      */
     public void actualizarBanda(Banda bandaActualizada) {
+        System.out.println("probando" + bandas );
         if (bandas == null){
             throw new IllegalArgumentException("No se encuentra la banda para actualizar.");
         }
