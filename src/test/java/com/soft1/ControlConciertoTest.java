@@ -17,11 +17,6 @@ public class ControlConciertoTest {
 
     private ControlConcierto controlConcierto;
 
-    @BeforeEach
-    void Inicializacion() {
-        controlConcierto = new ControlConcierto();
-    }
-
     @Test
     void agregarConcierto() {
 

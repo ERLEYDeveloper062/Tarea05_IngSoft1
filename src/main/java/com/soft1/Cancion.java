@@ -6,9 +6,9 @@ package com.soft1;
 public class Cancion {
 
     private String nombre;
-    private float duracion;
+    private double duracion;
 
-    public Cancion(String nombre, float duracion) {
+    public Cancion(String nombre, double duracion) {
         this.nombre = nombre;
         this.duracion = duracion;
     }
@@ -21,7 +21,7 @@ public class Cancion {
         this.nombre = nombre;
     }
 
-    public float getDuracion() {
+    public double getDuracion() {
         return duracion;
     }
 

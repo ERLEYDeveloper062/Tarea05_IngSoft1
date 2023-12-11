@@ -46,8 +46,8 @@ public class Concierto {
     }
 
     /**
-     *
-     * @return
+     *Obtiene los boletos que se hayan vendido en el concierto
+     * @return la cantidad de boletos vendidos
      */
     public int getBoletosVendidos(){
         return boletosVendidos;

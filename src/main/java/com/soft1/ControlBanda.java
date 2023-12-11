@@ -34,8 +34,7 @@ public class ControlBanda {
      * Consulta toda la informacion de la banda.
      *
      * @param nombreBanda Ingresa el nombre de la banda
-     * @return Retorna toda la informacion con respecto a la conformacion de la
-     *         banda.
+     * @return            Retorna toda la informacion con respecto a la conformacion de la banda.
      */
     public String consultarBanda(String nombreBanda) {
         for (Banda banda : bandas) {
@@ -52,8 +51,9 @@ public class ControlBanda {
     }
 
     /**
+     * Registra una banda en genral.
      *
-     * @param banda
+     * @param banda Ingresa una banda y si la banda no esta en la lista, la registra.
      */
     public void registrarBanda(Banda banda) {
         if (banda == null) {
@@ -65,39 +65,52 @@ public class ControlBanda {
     }
 
     /**
+     * Elimina la banda en una lista de bandas. Si el nombre de la banda es nulo o no lo encuentra lanza excepciones.
      *
-     * @param nombreBanda
+     * @param nombreBanda utilizar el nombre de la banda para buscar la banda y validar la informacion.
+     *                    Para luego ser eliminada de la lista.
      */
     public void eliminarBanda(String nombreBanda) {
+        if(nombreBanda == null){
+            throw new IllegalArgumentException("El nombre de la banda es nulo.");
+        }
+
         boolean eliminada = bandas.removeIf(banda -> banda.getNombre().equals(nombreBanda));
 
         if(eliminada){
             System.out.println("La banda '" + nombreBanda + "se encontró y se pudo eliminar.");
-        }
-        if (!eliminada) {
+        }else{
             throw new NoSuchElementException("La banda '" + nombreBanda + "' no se encontró o no se pudo eliminar.");
         }
     }
 
     /**
+     *Busca a las bandas de acuerdo al su nombre respectivo.
      *
-     * @param nombreBanda
-     * @return
+     * @param nombreBanda ingresa el nombre de la banda.
+     * @return            retorna la banda respectivamente.
      */
     public Banda buscarBanda(String nombreBanda) {
+        if(nombreBanda == null){
+            throw new IllegalArgumentException("El nombre de la banda es nulo.");
+        }
         for (Banda banda : bandas) {
             if (banda.getNombre().equals(nombreBanda)) {
                 return banda;
             }
         }
-        return null;
+        throw new NoSuchElementException("No se encontró la banda con nombre: " + nombreBanda);
     }
 
     /**
+     * actualiza a una banda en general, busca una banda por su nombre y va iterando sobre cada banda y actualizando.
      *
-     * @param bandaActualizada
+     * @param bandaActualizada se ingresa una banda en espefico para luego buscarla segun su nombre.
      */
     public void actualizarBanda(Banda bandaActualizada) {
+        if (bandas == null){
+            throw new IllegalArgumentException("No se encuentra la banda para actualizar.");
+        }
         for (int i = 0; i < bandas.size(); i++) {
             if (bandas.get(i).getNombre().equals(bandaActualizada.getNombre())) {
                 bandas.set(i, bandaActualizada);

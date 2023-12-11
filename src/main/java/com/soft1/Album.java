@@ -1,20 +1,21 @@
 package com.soft1;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Album {
     private String nombre;
     private Date fecha;
-    private float duracion;
+    private double duracion;
     private List<Cancion> canciones;
 
-    public Album(String nombre, Date fecha, float duracion, List<Cancion> canciones) {
+    public Album(String nombre, Date fecha, double duracion, List<Cancion> canciones) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.duracion = duracion;
-        this.canciones = canciones;
+        this.canciones = new ArrayList<>(canciones);
     }
 
     public void agregarCancion(Cancion cancion){
@@ -37,7 +38,7 @@ public class Album {
         this.fecha = fecha;
     }
 
-    public float getDuracion() {
+    public double getDuracion() {
         return duracion;
     }
 
