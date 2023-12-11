@@ -54,6 +54,9 @@ public class ControlAlbum {
      * Retorna True o False si la cancion ya se encuentra o no en el album
      */
     public Boolean buscarCancion(String nombreCancion, String nombreAlbum) {
+        if(nombreCancion == null || nombreAlbum == null){
+            throw new IllegalArgumentException("El nombre no puede ser null");
+        }
         Album album = buscarAlbum(nombreAlbum);
         if (album != null) {
             for (Cancion cancion : album.getCanciones()) {
@@ -70,6 +73,9 @@ public class ControlAlbum {
      * no este agregada la cancion para poder agregarla
      */
     public void agregarCanciones(Cancion cancion, String nombreAlbum){
+        if(cancion == null || nombreAlbum == null){
+            throw new IllegalArgumentException("El nombre no puede ser null");
+        }
         Album album = buscarAlbum(nombreAlbum);
         if (buscarCancion(cancion.getNombre(), nombreAlbum) == false){
             album.agregarCancion(cancion);
