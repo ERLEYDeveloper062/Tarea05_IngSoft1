@@ -6,11 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Aplicacion {
 
     private JFrame frame;
-    private ControlBanda controlBanda; // Asumiendo que tienes una clase llamada ControlBanda
+    private ControlBanda controlBanda; 
+    private ControlAlbum controlAlbum;
+    private ControlConcierto controlConcierto;
 
     public Aplicacion() {
         controlBanda = new ControlBanda();
@@ -73,10 +77,18 @@ public class Aplicacion {
             }
         });
 
+        JButton btnAgregarMiembro = new JButton("Agregar Miembro");
+        btnAgregarMiembro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                agregarMiembro();
+            }
+        });
+
         frame.getContentPane().add(btnRegistrarBanda);
         frame.getContentPane().add(btnActualizarBanda);
         frame.getContentPane().add(btnConsultarBanda);
-
+        frame.getContentPane().add(btnAgregarMiembro);
         frame.validate();
     }
 
@@ -177,6 +189,59 @@ public class Aplicacion {
         } else {
             JOptionPane.showMessageDialog(frame, "No se ingresó un nombre válido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void agregarMiembro() {
+        JFrame registroFrame = new JFrame("Agregar Miembro");
+        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        registroFrame.setLayout(new GridLayout(0, 2));
+
+        JTextField txtNombreBanda = new JTextField();
+        JTextField txtNombre = new JTextField();
+        JTextField txtRol = new JTextField();
+        JTextField txtInstrumentos= new JTextField(); // Podrías querer cambiar esto para manejar múltiples fotos
+
+        registroFrame.add(new JLabel("Nombre Banda:"));
+        registroFrame.add(txtNombreBanda);
+        registroFrame.add(new JLabel("Nombre:"));
+        registroFrame.add(txtNombre);
+        registroFrame.add(new JLabel("Rol:"));
+        registroFrame.add(txtRol);
+        registroFrame.add(new JLabel("Instrumentos (separados por comas):"));
+        registroFrame.add(txtInstrumentos);
+
+        JButton btnGuardar = new JButton("Guardar");
+        btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Aquí recoges la información de los campos y creas una banda
+                String nombreBanda = txtNombreBanda.getText();
+                String nombre = txtNombre.getText();
+                String rol = txtRol.getText();
+                String instrumentos = txtInstrumentos.getText();
+                instrumentos = instrumentos.toUpperCase();
+
+                String[] instrumentoList = instrumentos.split(",");
+                Set<Instrumento> instrumentosSet = new HashSet<>();
+
+                for(String elemento : instrumentoList){
+                    try {
+                        instrumentosSet.add(Instrumento.valueOf(elemento));
+                    } catch (IllegalArgumentException error) {
+                        JOptionPane.showMessageDialog(null,elemento + "No es un instrumento valido");
+                    }
+                }
+
+                Miembro miembro = new Miembro(nombre, rol, instrumentosSet);
+                Banda banda = controlBanda.buscarBanda(nombreBanda);
+                banda.agregarMiembro(miembro);
+                registroFrame.dispose(); 
+            }
+        });
+
+        registroFrame.add(btnGuardar);
+        registroFrame.setVisible(true);
     }
     
 
