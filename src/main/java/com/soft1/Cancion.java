@@ -1,7 +1,10 @@
 package com.soft1;
 
+/**
+ *
+ */
 public class Cancion {
-    
+
     private String nombre;
     private double duracion;
 
@@ -26,6 +29,6 @@ public class Cancion {
         this.duracion = duracion;
     }
 
-    
-    
+
+
 }

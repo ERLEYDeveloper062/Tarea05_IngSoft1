@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,13 +17,8 @@ public class ControlConciertoTest {
 
     private ControlConcierto controlConcierto;
 
-    @BeforeEach
-    void Inicializacion(){
-        controlConcierto = new ControlConcierto();
-    }
-
     @Test
-    void agregarConcierto(){
+    void agregarConcierto() {
 
         Concierto concierto1 = new Concierto("RockFest", new Date());
         controlConcierto.agregarConcierto(concierto1);
@@ -31,21 +27,15 @@ public class ControlConciertoTest {
     }
 
     @Test
-    void agregarConciertoNull(){
-
+    void agregarConciertoNull() {
         // Crear una instancia del controlador
-    ControlConcierto controlConcierto = new ControlConcierto();
+        ControlConcierto controlConcierto = new ControlConcierto();
 
-    // Agregar un concierto nulo
-    Concierto conciertoNulo = null;
-    controlConcierto.agregarConcierto(conciertoNulo);
-
-    // Verificar si el concierto sigue siendo nulo después de agregarlo
-    assertNull(conciertoNulo); // Aquí debes usar el método adecuado para obtener un concierto por nombre, en lugar de pasar un valor nulo.
+        assertThrows(NullPointerException.class, () -> controlConcierto.agregarConcierto(null));
     }
 
     @Test
-    void seleccionarConcierto(){
+    void seleccionarConcierto() {
         Concierto concierto = new Concierto("RockFest", new Date());
         controlConcierto.agregarConcierto(concierto);
 
@@ -67,22 +57,23 @@ public class ControlConciertoTest {
     }
 
     @Test
-void registroBoletosVendidos() {
-    // Crear un concierto
-    Concierto concierto = new Concierto("RockFest", new Date());
-    String nombreConcierto = concierto.getNombre();
+    void registroBoletosVendidos() {
+        // Crear un concierto
+        Concierto concierto = new Concierto("RockFest", new Date());
+        String nombreConcierto = concierto.getNombre();
 
-    // Agregar el concierto al controlador de conciertos
-    controlConcierto.agregarConcierto(concierto);
+        // Agregar el concierto al controlador de conciertos
+        controlConcierto.agregarConcierto(concierto);
 
-    // Registrar boletos vendidos para el concierto
-    controlConcierto.registrarBoletosVendidos(nombreConcierto, 123);
+        // Registrar boletos vendidos para el concierto
+        controlConcierto.registrarBoletosVendidos(nombreConcierto, 123);
 
-    // Obtener el concierto después de registrar los boletos
-    Concierto conciertoRegistrado = controlConcierto.getConciertoPorNombre(nombreConcierto);
+        // Obtener el concierto después de registrar los boletos
+        Concierto conciertoRegistrado = controlConcierto.getConciertoPorNombre(nombreConcierto);
 
-    // Verificar si se registraron los boletos correctamente
-    assertEquals(123, conciertoRegistrado.getBoletosVendidos());
-}
+        // Verificar si se registraron los boletos correctamente
+        assertEquals(123, conciertoRegistrado.getBoletosVendidos());
+    }
+
 
 }

@@ -97,7 +97,7 @@ public class ControlAlbum {
                     .map(cancion -> "Nombre: " + cancion.getNombre() + ", Duración: " + 
                             cancion.getDuracion() + " minutos")
                     .collect(Collectors.joining("; "));
-    
+
                 return "Nombre: " + album.getNombre() +
                        ", Duración: " + album.getDuracion() + " minutos" +
                        ", Fecha de Creación: " + album.getFecha() +
@@ -106,5 +106,5 @@ public class ControlAlbum {
         }
         return "Álbum no encontrado.";
     }
-    
+
 }

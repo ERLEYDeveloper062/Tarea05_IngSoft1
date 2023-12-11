@@ -3,6 +3,9 @@ package com.soft1;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ *
+ */
 public class Concierto {
     private String nombre;
     private java.util.Date fecha;
@@ -26,14 +29,26 @@ public class Concierto {
         return this.fecha;
     }
 
+    /**
+     *
+     * @param canciones
+     */
     public void setListaDeCanciones(List<Cancion> canciones){
         this.canciones = canciones;
     }
 
+    /**
+     *
+     * @param boletosVendidos
+     */
     public void registrarBoletosVendidos(int boletosVendidos){
         this.boletosVendidos = boletosVendidos;
     }
 
+    /**
+     *Obtiene los boletos que se hayan vendido en el concierto
+     * @return la cantidad de boletos vendidos
+     */
     public int getBoletosVendidos(){
         return boletosVendidos;
     }
