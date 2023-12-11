@@ -130,7 +130,43 @@ public class Aplicacion {
     }
 
     public void ActualizarBanda(){
+        JFrame registroFrame = new JFrame("Actualizar Banda");
+        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        registroFrame.setLayout(new GridLayout(0, 2));
 
+        JTextField txtNombre = new JTextField();
+        JTextField txtGenero = new JTextField();
+        JSpinner dateFechaCreacion = new JSpinner(new SpinnerDateModel());
+        JTextField txtFotos = new JTextField(); // Podrías querer cambiar esto para manejar múltiples fotos
+
+        registroFrame.add(new JLabel("Nombre:"));
+        registroFrame.add(txtNombre);
+        registroFrame.add(new JLabel("Género:"));
+        registroFrame.add(txtGenero);
+        registroFrame.add(new JLabel("Fecha de Creación:"));
+        registroFrame.add(dateFechaCreacion);
+        registroFrame.add(new JLabel("Fotos (separadas por comas):"));
+        registroFrame.add(txtFotos);
+
+        JButton btnGuardar = new JButton("Guardar");
+        btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Aquí recoges la información de los campos y creas una banda
+                String nombre = txtNombre.getText();
+                String genero = txtGenero.getText();
+                Date fechaCreacion = (Date) dateFechaCreacion.getValue();
+                ArrayList<String> fotos = new ArrayList<>(); // Necesitas procesar txtFotos para convertirlo en una lista
+
+                Banda banda = new Banda(nombre, genero, fechaCreacion, fotos);
+                controlBanda.actualizarBanda(banda);
+                registroFrame.dispose(); // Cierra la ventana de registro
+            }
+        });
+
+        registroFrame.add(btnGuardar);
+        registroFrame.setVisible(true);
     }
 
     private void consultarBanda() {
