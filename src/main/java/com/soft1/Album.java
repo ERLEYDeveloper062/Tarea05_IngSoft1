@@ -17,6 +17,10 @@ public class Album {
         this.canciones = canciones;
     }
 
+    public void agregarCancion(Cancion cancion){
+        this.canciones.add(cancion);
+    }
+
     public String getNombre() {
         return nombre;
     }

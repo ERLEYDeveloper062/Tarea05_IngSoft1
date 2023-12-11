@@ -1,5 +1,8 @@
 package com.soft1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ControlAlbum {
 
     private List<Album> albumes;
@@ -8,25 +11,23 @@ public class ControlAlbum {
         this.albumes = new ArrayList<>();
     }
 
-    public Banda buscarAlbum(String nombreAlbum) {
+    public Album buscarAlbum(String nombreAlbum) {
         return albumes.stream()
-                .filter(album -> albumes.getNombre().equals(nombreAlbum))
+                .filter(album -> album.getNombre().equals(nombreAlbum))
                 .findFirst()
                 .orElse(null);
     }
 
-    public Banda buscarCancion(String nombreCancion) {
-        return canciones.stream()
-                .filter(cancion -> cancion.getNombre().equals(nombreCancion))
-                .findFirst()
-                .orElse(null);
+    public Boolean buscarCancion(String nombreCancion, String nombreAlbum) {
+        Album album = buscarAlbum(nombreAlbum);
+        return album.getCanciones().contains(nombreCancion);
     }
 
-    public void agregarCanciones(String nombreCancion, String nombreAlbum){
-        private Cancion cancion = buscarCancion(nombreCancion);
-        private Album album = 
-
-        
+    public void agregarCanciones(Cancion cancion, String nombreAlbum){
+        Album album = buscarAlbum(nombreAlbum);
+        if (buscarCancion(cancion.getNombre(), nombreAlbum) == false){
+            album.agregarCancion(cancion);
+        }
     }
     
 }
