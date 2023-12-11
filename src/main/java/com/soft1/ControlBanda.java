@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ControlBanda implements IControlBanda {
+public class ControlBanda{
     private List<Banda> bandas;
 
     public ControlBanda() {
@@ -47,7 +47,6 @@ public class ControlBanda implements IControlBanda {
         return "Banda no encontrada.";
     }
 
-    @Override
     public void registrarBanda(Banda banda) {
         if (banda == null) {
             throw new IllegalArgumentException("La banda no puede ser null");
@@ -57,20 +56,19 @@ public class ControlBanda implements IControlBanda {
         }
     }
 
-    @Override
     public void eliminarBanda(String nombreBanda) {
         bandas.removeIf(banda -> banda.getNombre().equals(nombreBanda));
     }
 
-    @Override
-    public Banda buscarBanda(String nombreBanda) {
-        return bandas.stream()
-                .filter(banda -> banda.getNombre().equals(nombreBanda))
-                .findFirst()
-                .orElse(null);
+    public Banda buscarBanda(String nombreBanda){
+        for (Banda banda : bandas){
+            if(banda.getNombre().equals(nombreBanda)){
+                return banda;
+            }
+        }
+        return null;
     }
 
-    @Override
     public void actualizarBanda(Banda bandaActualizada) {
         for (int i = 0; i < bandas.size(); i++) {
             if (bandas.get(i).getNombre().equals(bandaActualizada.getNombre())) {

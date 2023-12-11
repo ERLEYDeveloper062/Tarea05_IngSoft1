@@ -18,6 +18,10 @@ public class Concierto {
         return this.nombre;
     }
 
+    public List <Cancion> getCanciones(){
+        return this.canciones;
+    }
+
     public java.util.Date getfecha(){
         return this.fecha;
     }
