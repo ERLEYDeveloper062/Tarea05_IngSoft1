@@ -12,15 +12,17 @@ public class ControlAlbum {
 
     private List<Album> albumes;
 
-    /*
+    /**
      * Constructor inicial de ControlAlbum
      */
     public ControlAlbum() {
         this.albumes = new ArrayList<>();
     }
 
-    /*
+    /**
      * Añadir el album ya creado previamente a lista de albumes
+     * 
+     * @param album Ingresa el objeto album
      */
     public void registrarAlbum(Album album) {
         if (album == null) {
@@ -31,12 +33,12 @@ public class ControlAlbum {
         }
     }
 
-    /*
+    /**
      * Con el nombre del album, se busca en la lista de albumes
      * que exista alguno con ese nombre y lo retorna
      *
-     * @return
-     * Retorna el objeto de Album que coincide con el nombre ingresado
+     * @param nombreAlbum Ingresa el nombre del album
+     * @return Retorna el objeto de Album que coincide con el nombre ingresado
      */
     public Album buscarAlbum(String nombreAlbum) {
         if (nombreAlbum == null){
@@ -49,13 +51,14 @@ public class ControlAlbum {
         }
     }
 
-    /*
+    /**
      * Con el nombre de la cancion y el nombre del album buscamos primero
      * el album que tenga el mismo nombre para con ese objeto buscar las
      * canciones que tiene en su lista
      *
-     * @return
-     * Retorna True o False si la cancion ya se encuentra o no en el album
+     * @param nombreCancion Ingresa el nombre de la cancion
+     * @param nombreAlbum Ingresa el nombre del album
+     * @return Retorna True o False si la cancion ya se encuentra o no en el album
      */
     public Boolean buscarCancion(String nombreCancion, String nombreAlbum) {
         if(nombreCancion == null || nombreAlbum == null){
@@ -72,9 +75,12 @@ public class ControlAlbum {
         return false;
     }
 
-    /*
+    /**
      * Con el objeto de cancion y el nombre del album se busca que en el album
      * no este agregada la cancion para poder agregarla
+     * 
+     * @param cancion ingresa el objeto Cancion
+     * @param nombreAlbum ingresa el nombre del album
      */
     public void agregarCanciones(Cancion cancion, String nombreAlbum){
         if(cancion == null || nombreAlbum == null){
@@ -86,13 +92,13 @@ public class ControlAlbum {
         }
     }
 
-    /*
+    /**
      * Con el nombre del album buscamos el objeto para recorrer su lista de canciones
      * y añadir su informacion a un string, donde despues se añadira a un return con
      * la informacion del album
      *
-     * @return
-     * Retorna toda la informacion del album con sus canciones
+     * @param nombreAlbum Ingresa el nombre del album
+     * @return Retorna toda la informacion del album con sus canciones
      */
     public String consultarAlbum(String nombreAlbum) {
         for (Album album : albumes) {

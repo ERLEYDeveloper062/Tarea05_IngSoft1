@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class ControlAlbumTest {
     @Test
     void registrarAlbum(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
 
         controlAlbum1.registrarAlbum(album1);
@@ -30,7 +31,7 @@ public class ControlAlbumTest {
     @Test
     void buscarAlbum(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -42,7 +43,7 @@ public class ControlAlbumTest {
     @Test
     void buscarCancionNoExiste(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -53,7 +54,7 @@ public class ControlAlbumTest {
     @Test
     void buscarCancionSiExiste(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -64,7 +65,7 @@ public class ControlAlbumTest {
     @Test
     void agregarCanciones(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -74,7 +75,7 @@ public class ControlAlbumTest {
     @Test
     void consultarAlbum(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -85,7 +86,7 @@ public class ControlAlbumTest {
     @Test
     void consultarAlbumNoExiste(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), Arrays.asList(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 

@@ -69,61 +69,59 @@ public final class App {
         // Actualizar los miembros de la banda
         controlBanda.actualizarBandaMiembros("Los Rockeros", "Rock", nuevosMiembros);
 
-        // // Volver a buscar la banda con el nuevo nombre
-        // buscada = controlBanda.buscarBanda("Los 50 De Joselito");
-        // System.out.println("Banda actualizada:");
-        // System.out.println(buscada.getNombre());
+        // Volver a buscar la banda con el nuevo nombre
+        buscada = controlBanda.buscarBanda("Los 50 De Joselito");
+        System.out.println("Banda actualizada:");
+        System.out.println(buscada.getNombre());
 
-        // //Consultar toda la informacion de la banda
-        // System.out.println("Cosulta ...");
-        // controlBanda.consultarBanda("Los 50 De Joselito");
-        // System.out.println(controlBanda.consultarBanda("Los 50 De Joselito"));
+        //Consultar toda la informacion de la banda
+        System.out.println("Cosulta ...");
+        controlBanda.consultarBanda("Los 50 De Joselito");
+        System.out.println(controlBanda.consultarBanda("Los 50 De Joselito"));
 
-        // // Eliminar una banda
-        // controlBanda.eliminarBanda("Los 50 De Joselito");
-        // buscada = controlBanda.buscarBanda("Los 50 De Joselito");
-        // System.out.println("Banda después de eliminar:");
-        // System.out.println(buscada != null ? buscada : "Banda no encontrada");
+        // Eliminar una banda
+        controlBanda.eliminarBanda("Los 50 De Joselito");
+        buscada = controlBanda.buscarBanda("Los 50 De Joselito");
+        System.out.println("Banda después de eliminar:");
+        System.out.println(buscada != null ? buscada : "Banda no encontrada");
 
-        // // Instancia de ControlConcierto
-        // ControlConcierto controlConcierto = new ControlConcierto();
+        // Instancia de ControlConcierto
+        ControlConcierto controlConcierto = new ControlConcierto();
 
-        // // Creación y agregación de conciertos
-        // Concierto concierto1 = new Concierto("RockFest", new Date());
-        // controlConcierto.agregarConcierto(concierto1);
+        // Creación y agregación de conciertos
+        Concierto concierto1 = new Concierto("RockFest", new Date());
+        controlConcierto.agregarConcierto(concierto1);
 
-        // Cancion cancion1 = new Cancion("PrimeraCancion", 2.3);
-        // Cancion cancion2 = new Cancion("SegundaCancion", 2.4);
-        // Cancion cancion3 = new Cancion("TerceraCancion", 2.5);
-        // Cancion cancion4 = new Cancion("CuartaCancion", 2.6);
-
-
-        // //Crear nuevo album (Lanzar album)
-        // Album album1 = new Album("PrimerAlbum", new Date(123,10,12), 
-        //     List.of(cancion1, cancion2));
-        // Album album2 = new Album("SegundoAlbum", new Date(123,10,12), 
-        //     List.of(cancion3,cancion4));
-
-        // ControlAlbum controlAlbum = new ControlAlbum();
-        // controlAlbum.registrarAlbum(album1);
-        // controlAlbum.registrarAlbum(album2);
-        // System.out.println(controlAlbum.consultarAlbum("PrimerAlbum"));
+        Cancion cancion1 = new Cancion("PrimeraCancion", 2.3);
+        Cancion cancion2 = new Cancion("SegundaCancion", 2.4);
+        Cancion cancion3 = new Cancion("TerceraCancion", 2.5);
+        Cancion cancion4 = new Cancion("CuartaCancion", 2.6);
 
 
-        // //Agregar canciones al album
-        // controlAlbum.agregarCanciones(cancion4, "PrimerAlbum");
-        // System.out.println(controlAlbum.consultarAlbum("PrimerAlbum"));
+        //Crear nuevo album (Lanzar album)
+        Album album1 = new Album("PrimerAlbum", new Date(123,10,12), 
+        Arrays.asList(cancion1, cancion2));
+        Album album2 = new Album("SegundoAlbum", new Date(123,10,12), 
+        Arrays.asList(cancion3, cancion4));
+
+        ControlAlbum controlAlbum = new ControlAlbum();
+        controlAlbum.registrarAlbum(album1);
+        controlAlbum.registrarAlbum(album2);
+        System.out.println(controlAlbum.consultarAlbum("PrimerAlbum"));
 
 
-        // // h) Asignar lista de canciones al concierto
-        // controlConcierto.seleccionarConcierto("RockFest", List.of(
-        //     cancion1, cancion3, cancion4
-        // ));
+        //Agregar canciones al album
+        controlAlbum.agregarCanciones(cancion4, "PrimerAlbum");
+        System.out.println(controlAlbum.consultarAlbum("PrimerAlbum"));
 
-        // // i) Registrar el total de boletos vendidos en el concierto
-        // controlConcierto.registrarBoletosVendidos("RockFest", 150);
 
-        // // j) Consultar todos los conciertos realizados, cada uno con sus boletas vendidas
-        // controlConcierto.consultarConciertos();
+        // h) Asignar lista de canciones al concierto
+        controlConcierto.seleccionarConcierto("RockFest", Arrays.asList(cancion1,cancion3, cancion4));
+
+        // i) Registrar el total de boletos vendidos en el concierto
+        controlConcierto.registrarBoletosVendidos("RockFest", 150);
+
+        // j) Consultar todos los conciertos realizados, cada uno con sus boletas vendidas
+        controlConcierto.consultarConciertos();
     }
 }
