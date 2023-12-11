@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Clase de control para la maipulacion de álbums.
+ */
+
 public class ControlAlbum {
 
     private List<Album> albumes;
@@ -30,7 +34,7 @@ public class ControlAlbum {
     /*
      * Con el nombre del album, se busca en la lista de albumes
      * que exista alguno con ese nombre y lo retorna
-     * 
+     *
      * @return
      * Retorna el objeto de Album que coincide con el nombre ingresado
      */
@@ -47,9 +51,9 @@ public class ControlAlbum {
 
     /*
      * Con el nombre de la cancion y el nombre del album buscamos primero
-     * el album que tenga el mismo nombre para con ese objeto buscar las 
+     * el album que tenga el mismo nombre para con ese objeto buscar las
      * canciones que tiene en su lista
-     * 
+     *
      * @return
      * Retorna True o False si la cancion ya se encuentra o no en el album
      */
@@ -86,7 +90,7 @@ public class ControlAlbum {
      * Con el nombre del album buscamos el objeto para recorrer su lista de canciones
      * y añadir su informacion a un string, donde despues se añadira a un return con
      * la informacion del album
-     * 
+     *
      * @return
      * Retorna toda la informacion del album con sus canciones
      */
@@ -94,7 +98,7 @@ public class ControlAlbum {
         for (Album album : albumes) {
             if (album.getNombre().equals(nombreAlbum)) {
                 String cancionesStr = album.getCanciones().stream()
-                    .map(cancion -> "Nombre: " + cancion.getNombre() + ", Duración: " + 
+                    .map(cancion -> "Nombre: " + cancion.getNombre() + ", Duración: " +
                             cancion.getDuracion() + " minutos")
                     .collect(Collectors.joining("; "));
 

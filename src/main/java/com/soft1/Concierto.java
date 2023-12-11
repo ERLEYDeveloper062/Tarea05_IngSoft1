@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 /**
- *
+ * Clase para guardar informacion de los conciertos.
  */
 public class Concierto {
     private String nombre;
@@ -12,6 +12,14 @@ public class Concierto {
     private List<Cancion> canciones;
     private int boletosVendidos;
 
+
+    /**
+     *
+     * Constructor de concierto.
+     *
+     * @param nombre Ingresa el nombre del concierto
+     * @param date   Ingresa la fecha de realización.
+     */
     public Concierto(String nombre, java.util.Date date){
         this.nombre = nombre;
         this.fecha = date;
@@ -31,7 +39,9 @@ public class Concierto {
 
     /**
      *
-     * @param canciones
+     * Actualizar la lista de canciones.
+     *
+     * @param canciones Ingresa una lista de canciones y se van actualizando.
      */
     public void setListaDeCanciones(List<Cancion> canciones){
         this.canciones = canciones;
@@ -39,7 +49,9 @@ public class Concierto {
 
     /**
      *
-     * @param boletosVendidos
+     * Registra la cantidad de boletos que se vendieron en un concierto.
+     *
+     * @param boletosVendidos Ingresa la cantidad de boletos que se vendieron y los registra.
      */
     public void registrarBoletosVendidos(int boletosVendidos){
         this.boletosVendidos = boletosVendidos;

@@ -17,13 +17,14 @@ public class Banda {
 
     /**
      *
-     * @param nombre Ingresa el nombre de la banda
-     * @param genero Ingresa el genero musical en la que se conforma
+     * @param nombre         Ingresa el nombre de la banda
+     * @param genero         Ingresa el genero musical en la que se conforma
      * @param fechaCreacion2 Ingresa la fecha la creacion de la banda
-     * @param fotos Atributo donde se va a guardar las fotos de los miembros de la banda
+     * @param fotos          Atributo donde se va a guardar las fotos de los
+     *                       miembros de la banda
      */
     public Banda(String nombre, String genero, java.util.Date fechaCreacion2, List<String> fotos) {
-        this.nombre  =nombre;
+        this.nombre = nombre;
         this.genero = genero;
         this.fechaCreacion = fechaCreacion;
         this.fotos = new ArrayList<>();
@@ -34,7 +35,7 @@ public class Banda {
      *
      * @param miembro Agrega un mienbro de la banda a la lista
      */
-    public void agregarMiembro(Miembro miembro){
+    public void agregarMiembro(Miembro miembro) {
         miembros.add(miembro);
     }
 
@@ -42,7 +43,7 @@ public class Banda {
      *
      * @param miembro Elimina un miembro de la banda que haya sido expulsado
      */
-    public void eliminarMiembro(Miembro miembro){
+    public void eliminarMiembro(Miembro miembro) {
         miembros.remove(miembro);
     }
 
@@ -51,9 +52,9 @@ public class Banda {
      * @param nombre
      * @return
      */
-    public Miembro buscarMiembroPorNombre(String nombre){
-        for(Miembro miembro: miembros){
-            if(miembro.getNombre().equals(nombre)){
+    public Miembro buscarMiembroPorNombre(String nombre) {
+        for (Miembro miembro : miembros) {
+            if (miembro.getNombre().equals(nombre)) {
                 return miembro;
             }
         }
@@ -61,19 +62,14 @@ public class Banda {
     }
 
     /**
+     * Agrega nuevos miembros a la lista y verifica si ya existen.
      *
-     * @param miembrosActualizados Se ingresan los nuevos miembros de la banda y se verifica que no se hayan repetido.
+     * @param nuevosMiembros Lista de nuevos miembros de la banda.
      */
-    public void actualizarMiembros(List<Miembro> miembrosActualizados){
-        for(Miembro miembroActualizado : miembrosActualizados){
-            Miembro miembroExistente = buscarMiembroPorNombre(miembroActualizado.getNombre());
-
-            if(miembroExistente != null){
-                miembroExistente.setNombre(miembroActualizado.getNombre());
-                miembroExistente.setRol(miembroActualizado.getRol());
-                miembroExistente.setInstrumentos(miembroActualizado.getInstrumentos());
-            }else{
-                agregarMiembro(miembroExistente);
+    public void agregarNuevosMiembros(List<Miembro> nuevosMiembros) {
+        for (Miembro nuevoMiembro : nuevosMiembros) {
+            if (!miembros.contains(nuevoMiembro)) {
+                miembros.add(nuevoMiembro);
             }
         }
     }
@@ -117,6 +113,5 @@ public class Banda {
     public void setMiembros(List<Miembro> miembros) {
         this.miembros = miembros;
     }
-
 
 }

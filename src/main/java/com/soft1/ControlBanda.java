@@ -5,9 +5,16 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+/*
+ * Clase de control para la manipulacion de las bandas.
+ */
+
 public class ControlBanda {
     private List<Banda> bandas;
 
+    /*
+     * Constructor inicial de ControlBanda
+     */
     public ControlBanda() {
         this.bandas = new ArrayList<>();
     }
@@ -23,7 +30,7 @@ public class ControlBanda {
         for (Banda banda : bandas) {
             if (banda != null) {
                 if (banda.getNombre().equals(nombreBanda)) {
-                    banda.actualizarMiembros(nuevosMiembros);
+                    banda.agregarNuevosMiembros(nuevosMiembros);
                     break;
                 }
             }
@@ -34,7 +41,8 @@ public class ControlBanda {
      * Consulta toda la informacion de la banda.
      *
      * @param nombreBanda Ingresa el nombre de la banda
-     * @return            Retorna toda la informacion con respecto a la conformacion de la banda.
+     * @return Retorna toda la informacion con respecto a la conformacion de la
+     *         banda.
      */
     public String consultarBanda(String nombreBanda) {
         for (Banda banda : bandas) {
@@ -53,7 +61,8 @@ public class ControlBanda {
     /**
      * Registra una banda en genral.
      *
-     * @param banda Ingresa una banda y si la banda no esta en la lista, la registra.
+     * @param banda Ingresa una banda y si la banda no esta en la lista, la
+     *              registra.
      */
     public void registrarBanda(Banda banda) {
         if (banda == null) {
@@ -65,33 +74,35 @@ public class ControlBanda {
     }
 
     /**
-     * Elimina la banda en una lista de bandas. Si el nombre de la banda es nulo o no lo encuentra lanza excepciones.
+     * Elimina la banda en una lista de bandas. Si el nombre de la banda es nulo o
+     * no lo encuentra lanza excepciones.
      *
-     * @param nombreBanda utilizar el nombre de la banda para buscar la banda y validar la informacion.
+     * @param nombreBanda utilizar el nombre de la banda para buscar la banda y
+     *                    validar la informacion.
      *                    Para luego ser eliminada de la lista.
      */
     public void eliminarBanda(String nombreBanda) {
-        if(nombreBanda == null){
+        if (nombreBanda == null) {
             throw new IllegalArgumentException("El nombre de la banda es nulo.");
         }
 
         boolean eliminada = bandas.removeIf(banda -> banda.getNombre().equals(nombreBanda));
 
-        if(eliminada){
+        if (eliminada) {
             System.out.println("La banda '" + nombreBanda + "se encontró y se pudo eliminar.");
-        }else{
+        } else {
             throw new NoSuchElementException("La banda '" + nombreBanda + "' no se encontró o no se pudo eliminar.");
         }
     }
 
     /**
-     *Busca a las bandas de acuerdo al su nombre respectivo.
+     * Busca a las bandas de acuerdo al su nombre respectivo.
      *
      * @param nombreBanda ingresa el nombre de la banda.
-     * @return            retorna la banda respectivamente.
+     * @return retorna la banda respectivamente.
      */
     public Banda buscarBanda(String nombreBanda) {
-        if(nombreBanda == null){
+        if (nombreBanda == null) {
             throw new IllegalArgumentException("El nombre de la banda es nulo.");
         }
         for (Banda banda : bandas) {
@@ -103,12 +114,14 @@ public class ControlBanda {
     }
 
     /**
-     * actualiza a una banda en general, busca una banda por su nombre y va iterando sobre cada banda y actualizando.
+     * actualiza a una banda en general, busca una banda por su nombre y va iterando
+     * sobre cada banda y actualizando.
      *
-     * @param bandaActualizada se ingresa una banda en espefico para luego buscarla segun su nombre.
+     * @param bandaActualizada se ingresa una banda en espefico para luego buscarla
+     *                         segun su nombre.
      */
     public void actualizarBanda(Banda bandaActualizada) {
-        if (bandas == null){
+        if (bandas == null) {
             throw new IllegalArgumentException("No se encuentra la banda para actualizar.");
         }
         for (int i = 0; i < bandas.size(); i++) {

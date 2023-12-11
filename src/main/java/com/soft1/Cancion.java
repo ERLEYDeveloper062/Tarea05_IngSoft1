@@ -1,13 +1,20 @@
 package com.soft1;
 
 /**
- *
+ * Clase para guardar info de Canciones.
  */
 public class Cancion {
 
     private String nombre;
     private double duracion;
 
+    /**
+     *
+     * Constructor de Cancion.
+     *
+     * @param nombre    Ingresa el nombre de la cancion.
+     * @param duracion  Ingresa la duracion.
+     */
     public Cancion(String nombre, double duracion) {
         this.nombre = nombre;
         this.duracion = duracion;

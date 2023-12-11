@@ -14,9 +14,11 @@ public class Miembro {
 
     /**
      *
-     * @param nombre
-     * @param rol
-     * @param instrumentos
+     * Constructor de Mienbro
+     *
+     * @param nombre        Ingresa el nombre del mienbro de la banda.
+     * @param rol           Ingresa el rol que va a desempeñar.
+     * @param instrumentos  Ingresa que instrumentos tóca.
      */
     public Miembro(String nombre, String rol, Set<Instrumento> instrumentos) {
         this.nombre = nombre;
@@ -24,10 +26,18 @@ public class Miembro {
         this.instrumentos = new HashSet<>(instrumentos);
     }
 
+    /**
+     * Agrega un instrumento a la lista.
+     * @param instrumento ingresa un instrumento.
+     */
     public void agregarInstrumento(Instrumento instrumento){
         this.instrumentos.add(instrumento);
     }
 
+    /**
+     * elimina un instrumento de la lista.
+     * @param instrumento ingresa un instrumento.
+     */
     public void eliminarInstrumento(Instrumento instrumento) {
         this.instrumentos.remove(instrumento);
     }
