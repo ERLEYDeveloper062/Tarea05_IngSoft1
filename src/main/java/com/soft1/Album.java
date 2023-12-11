@@ -11,38 +11,41 @@ public class Album {
     private double duracion;
     private List<Cancion> canciones;
 
-    public Album(String nombre, Date fecha, double duracion, List<Cancion> canciones) {
+    public Album(String nombre, Date fecha, List<Cancion> canciones) {
         this.nombre = nombre;
         this.fecha = fecha;
-        this.duracion = duracion;
+        this.duracion = 0;
         this.canciones = new ArrayList<>(canciones);
+
+        duracionAlbum();
     }
 
     public void agregarCancion(Cancion cancion){
         this.canciones.add(cancion);
+        duracionAlbum();
+    }
+
+    public void duracionAlbum(){
+        double duracionTotal = 0;
+        for (Cancion cancion : canciones) {
+            duracionTotal += cancion.getDuracion();
+        }
+        setDuracion(duracionTotal);
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Date getFecha() {
         return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public double getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(float duracion) {
+    public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
 

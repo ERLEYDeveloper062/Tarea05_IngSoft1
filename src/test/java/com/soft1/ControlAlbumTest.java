@@ -20,7 +20,7 @@ public class ControlAlbumTest {
     @Test
     void registrarAlbum(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
 
         controlAlbum1.registrarAlbum(album1);
@@ -30,7 +30,7 @@ public class ControlAlbumTest {
     @Test
     void buscarAlbum(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -42,7 +42,7 @@ public class ControlAlbumTest {
     @Test
     void buscarCancionNoExiste(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -53,7 +53,7 @@ public class ControlAlbumTest {
     @Test
     void buscarCancionSiExiste(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -64,7 +64,7 @@ public class ControlAlbumTest {
     @Test
     void agregarCanciones(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -74,7 +74,7 @@ public class ControlAlbumTest {
     @Test
     void consultarAlbum(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
@@ -85,7 +85,7 @@ public class ControlAlbumTest {
     @Test
     void consultarAlbumNoExiste(){
         Cancion cancion1 = new Cancion("cancion1", 3.1);
-        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), 20.5, List.of(cancion1));
+        Album album1 = new Album("AlbumPrueba1", new Date(123,1,2), List.of(cancion1));
         ControlAlbum controlAlbum1 = new ControlAlbum();
         controlAlbum1.registrarAlbum(album1);
 
