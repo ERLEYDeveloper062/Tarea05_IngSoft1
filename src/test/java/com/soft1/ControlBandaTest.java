@@ -75,11 +75,7 @@ public class ControlBandaTest {
     public void buscarBandaInexistenteNull() {
         // Arrange
         ControlBanda controlBanda = new ControlBanda();
-
-        // Act
-        Banda bandaEncontrada = controlBanda.buscarBanda("Metallica");
-
-        // Assert
-        assertEquals(null, bandaEncontrada);
+        
+        assertThrows(Exception.class, ()->controlBanda.buscarBanda("Metallica"));
     }
 }

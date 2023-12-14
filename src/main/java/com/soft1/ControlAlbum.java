@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  */
 
 public class ControlAlbum {
-
+    private static final String ERROR_NOMBRE_NULL = "El nombre no puede ser null";
     private List<Album> albumes;
 
     /**
@@ -42,7 +42,7 @@ public class ControlAlbum {
      */
     public Album buscarAlbum(String nombreAlbum) {
         if (nombreAlbum == null){
-            throw new IllegalArgumentException("El nombre no puede ser null");
+            throw new IllegalArgumentException(ERROR_NOMBRE_NULL);
         }else{
             return albumes.stream()
                 .filter(album -> album.getNombre().equals(nombreAlbum))
@@ -62,7 +62,7 @@ public class ControlAlbum {
      */
     public Boolean buscarCancion(String nombreCancion, String nombreAlbum) {
         if(nombreCancion == null || nombreAlbum == null){
-            throw new IllegalArgumentException("El nombre no puede ser null");
+            throw new IllegalArgumentException(ERROR_NOMBRE_NULL);
         }
         Album album = buscarAlbum(nombreAlbum);
         if (album != null) {
@@ -84,10 +84,10 @@ public class ControlAlbum {
      */
     public void agregarCanciones(Cancion cancion, String nombreAlbum){
         if(cancion == null || nombreAlbum == null){
-            throw new IllegalArgumentException("El nombre no puede ser null");
+            throw new IllegalArgumentException(ERROR_NOMBRE_NULL);
         }
         Album album = buscarAlbum(nombreAlbum);
-        if (buscarCancion(cancion.getNombre(), nombreAlbum) == false){
+        if (Boolean.FALSE.equals(buscarCancion(cancion.getNombre(), nombreAlbum))){
             album.agregarCancion(cancion);
         }
     }
