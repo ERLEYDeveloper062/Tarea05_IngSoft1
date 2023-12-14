@@ -21,7 +21,7 @@ public class ControlAlbum {
 
     /**
      * Añadir el album ya creado previamente a lista de albumes
-     * 
+     *
      * @param album Ingresa el objeto album
      */
     public void registrarAlbum(Album album) {
@@ -78,7 +78,7 @@ public class ControlAlbum {
     /**
      * Con el objeto de cancion y el nombre del album se busca que en el album
      * no este agregada la cancion para poder agregarla
-     * 
+     *
      * @param cancion ingresa el objeto Cancion
      * @param nombreAlbum ingresa el nombre del album
      */
@@ -115,6 +115,10 @@ public class ControlAlbum {
             }
         }
         return "Álbum no encontrado.";
+    }
+
+    public List<Album> getAlbumes() {
+        return albumes;
     }
 
 }

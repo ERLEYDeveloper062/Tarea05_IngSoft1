@@ -23,7 +23,7 @@ public final class App {
         ControlBanda controlBanda = new ControlBanda();
 
         // Crear una banda
-        Banda banda1 = new Banda("Los Rockeros", "Rock", new Date(), 
+        Banda banda1 = new Banda("Los Rockeros", "Rock", new Date(),
                 Arrays.asList("foto1.jpg", "foto2.jpg"));
         JOptionPane.showMessageDialog(null, "Banda creada con exito");
 
@@ -34,12 +34,12 @@ public final class App {
         // Crear miembros y agregarlos a la banda
         Set<Instrumento> instrumentosM1 = EnumSet.of(Instrumento.GUITARRA, Instrumento.VOZ);
         Miembro miembro1 = new Miembro("Juan", "Guitarrista", instrumentosM1);
-        JOptionPane.showMessageDialog(null, "Miembro " + miembro1.getNombre() + ", " + 
+        JOptionPane.showMessageDialog(null, "Miembro " + miembro1.getNombre() + ", " +
                 miembro1.getRol() +" creado con exito");
 
         Set<Instrumento> instrumentosM2 = EnumSet.of(Instrumento.BAJO);
         Miembro miembro2 = new Miembro("Ana", "Bajista", instrumentosM2);
-        JOptionPane.showMessageDialog(null, "Miembro " + miembro2.getNombre() + ", " + 
+        JOptionPane.showMessageDialog(null, "Miembro " + miembro2.getNombre() + ", " +
                  miembro2.getRol() +" creado con exito");
 
         banda1.agregarMiembro(miembro1);
@@ -47,7 +47,7 @@ public final class App {
 
         // Imprimir información de la banda
         System.out.println("Banda registrada:");
-        System.out.println("Nombre de la banda es: " + banda1.getNombre()+ "Genero de la banda es: " + 
+        System.out.println("Nombre de la banda es: " + banda1.getNombre()+ "Genero de la banda es: " +
                 banda1.getGenero());
 
         // Buscar la banda y mostrar su información
@@ -99,9 +99,9 @@ public final class App {
 
 
         //Crear nuevo album (Lanzar album)
-        Album album1 = new Album("PrimerAlbum", new Date(123,10,12), 
+        Album album1 = new Album("PrimerAlbum", new Date(123,10,12),
         Arrays.asList(cancion1, cancion2));
-        Album album2 = new Album("SegundoAlbum", new Date(123,10,12), 
+        Album album2 = new Album("SegundoAlbum", new Date(123,10,12),
         Arrays.asList(cancion3, cancion4));
 
         ControlAlbum controlAlbum = new ControlAlbum();

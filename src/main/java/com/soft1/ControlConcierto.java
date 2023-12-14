@@ -1,9 +1,14 @@
 package com.soft1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+
+/***
+ *
+ */
 
 public class ControlConcierto {
     private Map<String, Concierto> conciertos;
@@ -49,14 +54,19 @@ public class ControlConcierto {
         }
     }
 
+    public List<String> getAllConcertNames() {
+        List<String> concertNames = new ArrayList<>();
+        for (Concierto concierto : conciertos.values()) {
+            concertNames.add(concierto.getNombre());
+        }
+        return concertNames;
+    }
+
     /**
      *
      * @param concierto
      */
     public void agregarConcierto(Concierto concierto) {
-        if (conciertos == null) {
-            throw new NullPointerException("La lista de conciertos es vacía");
-        }
         conciertos.put(concierto.getNombre(), concierto);
     }
 
