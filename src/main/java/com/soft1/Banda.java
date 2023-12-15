@@ -4,6 +4,10 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Creacion de la banda con sus respectivos miembros
+ */
+
 public class Banda {
     private String nombre;
     private String genero;
@@ -11,44 +15,63 @@ public class Banda {
     private List<String> fotos;
     private List<Miembro> miembros;
 
+    /**
+     *
+     * @param nombre         Ingresa el nombre de la banda
+     * @param genero         Ingresa el genero musical en la que se conforma
+     * @param fechaCreacion2 Ingresa la fecha la creacion de la banda
+     * @param fotos          Atributo donde se va a guardar las fotos de los
+     *                       miembros de la banda
+     */
     public Banda(String nombre, String genero, java.util.Date fechaCreacion2, List<String> fotos) {
-        this.nombre  =nombre;
+        this.nombre = nombre;
         this.genero = genero;
         this.fechaCreacion = fechaCreacion2;
         this.fotos = new ArrayList<>();
         this.miembros = new ArrayList<>();
     }
 
-    public void agregarMiembro(Miembro miembro){
+    /**
+     *
+     * @param miembro Agrega un mienbro de la banda a la lista
+     */
+    public void agregarMiembro(Miembro miembro) {
         miembros.add(miembro);
     }
 
-    public void eliminarMiembro(Miembro miembro){
+    /**
+     *
+     * @param miembro Elimina un miembro de la banda que haya sido expulsado
+     */
+    public void eliminarMiembro(Miembro miembro) {
         miembros.remove(miembro);
     }
 
-    public Miembro buscarMiembroPorNombre(String nombre){
-        for(Miembro miembro: miembros){
-            if(miembro.getNombre().equals(nombre)){
+    /**
+     *
+     * @param nombre
+     * @return
+     */
+    public Miembro buscarMiembroPorNombre(String nombre) {
+        for (Miembro miembro : miembros) {
+            if (miembro.getNombre().equals(nombre)) {
                 return miembro;
             }
         }
         return null;
     }
 
-    public void actualizarMiembros(List<Miembro> miembrosActualizados){
-        for(Miembro miembroActualizado : miembrosActualizados){
-            Miembro miembroExistente = buscarMiembroPorNombre(miembroActualizado.getNombre());
-
-            if(miembroExistente != null){
-                miembroExistente.setNombre(miembroActualizado.getNombre());
-                miembroExistente.setRol(miembroActualizado.getRol());
-                miembroExistente.setInstrumentos(miembroActualizado.getInstrumentos());
-            }else{
-                agregarMiembro(miembroExistente);
+    /**
+     * Agrega nuevos miembros a la lista y verifica si ya existen.
+     *
+     * @param nuevosMiembros Lista de nuevos miembros de la banda.
+     */
+    public void agregarNuevosMiembros(List<Miembro> nuevosMiembros) {
+        for (Miembro nuevoMiembro : nuevosMiembros) {
+            if (!miembros.contains(nuevoMiembro)) {
+                miembros.add(nuevoMiembro);
             }
         }
-
     }
 
     public String getNombre() {
@@ -90,6 +113,5 @@ public class Banda {
     public void setMiembros(List<Miembro> miembros) {
         this.miembros = miembros;
     }
-
 
 }
