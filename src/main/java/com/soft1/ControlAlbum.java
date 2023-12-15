@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 /**
  * Clase de control para la maipulacion de álbums.
+ * Realiza las validaciones y operaciones necesarias en cada
+ * funcionalidad antes de hacer cambios en los datos.
  */
 
 public class ControlAlbum {

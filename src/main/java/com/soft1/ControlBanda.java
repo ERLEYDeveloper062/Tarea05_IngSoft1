@@ -5,14 +5,16 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-/*
+/**
  * Clase de control para la manipulacion de las bandas.
+ * Realiza las validaciones y operaciones necesarias en cada
+ * funcionalidad antes de hacer cambios en los datos.
  */
 
 public class ControlBanda {
     private List<Banda> bandas;
 
-    /*
+    /**
      * Constructor inicial de ControlBanda
      */
     public ControlBanda() {
@@ -37,7 +39,7 @@ public class ControlBanda {
         }
     }
 
-    /***
+    /**
      * Consulta toda la informacion de la banda.
      *
      * @param nombreBanda Ingresa el nombre de la banda

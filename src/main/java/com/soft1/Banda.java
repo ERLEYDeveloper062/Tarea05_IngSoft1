@@ -4,8 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Creacion de la banda con sus respectivos miembros
+/**
+ * Clase para la creacion de la banda con sus respectivos miembros.
+ * También se le asigna un nombre, género musical y la fecha de creacion.
  */
 
 public class Banda {

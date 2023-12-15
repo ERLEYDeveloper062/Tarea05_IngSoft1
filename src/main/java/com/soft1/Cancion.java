@@ -1,7 +1,8 @@
 package com.soft1;
 
 /**
- * Clase para guardar info de Canciones.
+ * Clase para guardar info de Canciones
+ * con su respectivo nombre y duracion.
  */
 public class Cancion {
 

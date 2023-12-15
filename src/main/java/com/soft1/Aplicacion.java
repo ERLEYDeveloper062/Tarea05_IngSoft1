@@ -13,6 +13,9 @@ import java.util.Set;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * Clase para crear la interfaz gráfica de la aplicación.
+ */
 public class Aplicacion {
 
     private JFrame frame;

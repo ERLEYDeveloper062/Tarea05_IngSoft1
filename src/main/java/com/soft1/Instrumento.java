@@ -1,6 +1,6 @@
 package com.soft1;
 
-/*
+/**
  *Enumeraciones De los instrumentos que tendra cada mienbro de la banda.
  */
 

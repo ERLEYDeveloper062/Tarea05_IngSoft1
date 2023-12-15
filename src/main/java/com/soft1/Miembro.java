@@ -3,8 +3,9 @@ package com.soft1;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
- * Agrega un miembro a la banda
+/**
+ * Clase para crear un miembro de la banda.
+ * Con su respectivo nombre, rol y los instrumentos que toca.
  */
 
 public class Miembro {
@@ -35,7 +36,7 @@ public class Miembro {
     }
 
     /**
-     * elimina un instrumento de la lista.
+     * Elimina un instrumento de la lista.
      * @param instrumento ingresa un instrumento.
      */
     public void eliminarInstrumento(Instrumento instrumento) {
