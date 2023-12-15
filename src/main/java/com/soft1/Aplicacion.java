@@ -32,9 +32,11 @@ public class Aplicacion {
 
     private void initialize() {
         frame = new JFrame("Rock & Code");
-        frame.setBounds(100, 100, 450, 300);
+        frame.setBounds(100, 100, 450*2*2, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
+        frame.setLayout(new GridLayout(3, 1));  // Donde 0 significa un número variable de filas y 1 es el número de columnas
+
 
         JButton btnBanda = new JButton("Banda");
         JButton btnAlbum = new JButton("Álbum");
@@ -225,7 +227,7 @@ public class Aplicacion {
     /*---------------------------------------------------------------------------------------------------------------------------- */
     private void registrarBanda() {
         JFrame registroFrame = new JFrame("Registrar Banda");
-        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setBounds(100, 100, 450*2, 600);
         registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registroFrame.setLayout(new GridLayout(0, 2));
 
@@ -266,7 +268,7 @@ public class Aplicacion {
 
     public void ActualizarBanda() {
         JFrame registroFrame = new JFrame("Actualizar Banda");
-        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setBounds(100, 100, 450*2, 600);
         registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registroFrame.setLayout(new GridLayout(0, 2));
 
@@ -317,7 +319,7 @@ public class Aplicacion {
 
     private void agregarMiembro() {
         JFrame registroFrame = new JFrame("Agregar Miembro");
-        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setBounds(100, 100, 450*2, 600);
         registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registroFrame.setLayout(new GridLayout(0, 2));
 
@@ -371,7 +373,7 @@ public class Aplicacion {
     /*----------------------------------------------------------------------------------------- */
     private void agregarConcierto() {
         JFrame registroFrame = new JFrame("AgregarConcierto");
-        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setBounds(100, 100, 450*2, 600);
         registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registroFrame.setLayout(new GridLayout(0, 2));
 
@@ -404,7 +406,7 @@ public class Aplicacion {
 
     private void registrarBoletosVendidos() {
         JFrame registroFrame = new JFrame("RegistrarBoletosVendidos");
-        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setBounds(100, 100, 450*2, 600);
         registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registroFrame.setLayout(new GridLayout(0, 2));
 
@@ -551,7 +553,7 @@ public class Aplicacion {
 
     private void registarAlbum() {
         JFrame registroFrame = new JFrame("Registrar Album");
-        registroFrame.setBounds(100, 100, 450, 300);
+        registroFrame.setBounds(100, 100, 450*2, 600);
         registroFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registroFrame.setLayout(new GridLayout(0, 2));
 
@@ -604,7 +606,7 @@ public class Aplicacion {
 
     private void agregarCanciones() {
         JFrame frame = new JFrame("Agregar Canciones");
-        frame.setSize(400, 300);
+        frame.setSize(400, 600);
         frame.setLayout(new GridLayout(0, 2));
 
         JComboBox<String> albumComboBox = new JComboBox<>();
@@ -653,7 +655,7 @@ public class Aplicacion {
 
     private void buscarAlbum() {
         JFrame frame = new JFrame("Buscar Album");
-        frame.setSize(300, 200);
+        frame.setSize(600, 200);
         frame.setLayout(new GridLayout(0, 2));
 
         JTextField txtNombreAlbum = new JTextField();
